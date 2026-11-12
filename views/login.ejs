@@ -1,0 +1,21 @@
+<%- include("partials/header", { pageTitle: "Login" }) %>
+<div class="container auth-wrap">
+  <div class="auth-brand"><span class="brand-icon"><i class="bi bi-layers-half"></i></span><span>NEXA<span class="brand-light">SPACE</span></span></div>
+  <div class="card auth-card"><div class="card-body">
+    <div class="eyebrow">Selamat datang kembali</div>
+    <h1 class="h3 fw-bold mb-2">Login ke akunmu</h1>
+    <p class="text-muted mb-4">Masuk dan lanjutkan pekerjaanmu.</p>
+    <% if (registered) { %><div class="alert alert-success"><i class="bi bi-check-circle me-2"></i>Registrasi berhasil. Silakan login.</div><% } %>
+    <% if (error) { %><div class="alert alert-danger"><i class="bi bi-exclamation-circle me-2"></i><%= error %></div><% } %>
+    <form method="POST" action="/login">
+      <label class="form-label">Alamat email</label>
+      <input class="form-control mb-3" type="email" name="email" placeholder="nama@email.com" required>
+      <label class="form-label">Password</label>
+      <input class="form-control mb-4" type="password" name="password" placeholder="Masukkan password" required>
+      <button class="btn btn-primary w-100 py-3" type="submit">Masuk <i class="bi bi-arrow-right ms-1"></i></button>
+    </form>
+    <p class="text-center text-muted small mt-4 mb-0">Belum punya akun? <a class="fw-bold text-decoration-none" href="/register">Daftar gratis</a></p>
+  </div></div>
+  <p class="text-center text-muted small mt-4">© <%= new Date().getFullYear() %> NexaSpace Workspace</p>
+</div>
+<%- include("partials/footer") %>

@@ -1,0 +1,23 @@
+<%- include("partials/header", { pageTitle: "Register" }) %>
+<div class="container auth-wrap">
+  <div class="auth-brand"><span class="brand-icon"><i class="bi bi-layers-half"></i></span><span>NEXA<span class="brand-light">SPACE</span></span></div>
+  <div class="card auth-card"><div class="card-body">
+    <div class="eyebrow">Mulai perjalananmu</div>
+    <h1 class="h3 fw-bold mb-2">Buat akun baru</h1>
+    <p class="text-muted mb-4">Satu ruang untuk mengelola semua data dan file kamu.</p>
+    <% if (error) { %><div class="alert alert-danger"><i class="bi bi-exclamation-circle me-2"></i><%= error %></div><% } %>
+    <form method="POST" action="/register">
+      <label class="form-label">Nama lengkap</label>
+      <input class="form-control mb-3" name="name" maxlength="120" placeholder="Nama kamu" required value="<%= values.name || '' %>">
+      <label class="form-label">Alamat email</label>
+      <input class="form-control mb-3" type="email" name="email" placeholder="nama@email.com" required value="<%= values.email || '' %>">
+      <label class="form-label">Password</label>
+      <input class="form-control mb-2" type="password" name="password" minlength="8" placeholder="Minimal 8 karakter" required>
+      <div class="form-text mb-4">Gunakan password yang kuat dan unik.</div>
+      <button class="btn btn-primary w-100 py-3" type="submit">Buat akun <i class="bi bi-arrow-right ms-1"></i></button>
+    </form>
+    <p class="text-center text-muted small mt-4 mb-0">Sudah punya akun? <a class="fw-bold text-decoration-none" href="/login">Masuk sekarang</a></p>
+  </div></div>
+  <p class="text-center text-muted small mt-4">© <%= new Date().getFullYear() %> NexaSpace Workspace</p>
+</div>
+<%- include("partials/footer") %>
